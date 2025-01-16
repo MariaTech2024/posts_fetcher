@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './AddPostForm.css';
 
-const AddPostForm = ({ onAddPost }) => {
+const AddPostForm = ({ onAddPost, onCancel }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
@@ -30,9 +30,18 @@ const AddPostForm = ({ onAddPost }) => {
         onChange={(e) => setBody(e.target.value)}
         required
       />
-      <button className="add-post-form-button" type="submit">
-        Add Post
-      </button>
+     <div className="add-post-form-buttons">
+        <button className="add-post-form-button" type="submit">
+          Add Post
+        </button>
+        <button
+          className="add-post-form-cancel-button"
+          type="button"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };

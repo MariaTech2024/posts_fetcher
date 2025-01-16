@@ -1,7 +1,41 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f4f7fc; 
+}
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;  
+  align-items: center;     
+  justify-content: center;
+  margin: 10px 20px;
+padding: 10px;
+  background-color: #f9f9f9; 
+}
+
+.add-post-button {
+  background-color: #2f6cad; 
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.add-post-button:hover {
+  background-color: #0056b3; 
+}
+
 .posts-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 5px;
+  width: 100%; 
+  margin-top: 20px;
+}
