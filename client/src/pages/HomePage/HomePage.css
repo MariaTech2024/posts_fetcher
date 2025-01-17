@@ -5,6 +5,7 @@ body {
     sans-serif;
   background-color: #f4f7fc; 
 }
+
 .home-container {
   width: 100%;
   display: flex;
@@ -12,8 +13,23 @@ body {
   align-items: center;     
   justify-content: center;
   margin: 10px 20px;
-padding: 10px;
+  padding: 5px;
   background-color: #f9f9f9; 
+  box-sizing: border-box;
+}
+
+.banner {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+.banner-image {
+  width: 90%; 
+  height: 280px;
+  display: block; 
 }
 
 .add-post-button {

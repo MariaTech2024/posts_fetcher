@@ -42,12 +42,12 @@
 }
 
 .search-icon {
-  color: #4a4661;
+  color: #5a76d3;
   font-size: 20px;
 }
 
 .search-bar input::placeholder {
-  color: #4a4661;
+  color: #b3bce0;
   font-style: italic;
 }
 

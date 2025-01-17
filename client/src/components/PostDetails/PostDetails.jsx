@@ -19,17 +19,24 @@ const PostDetails = ({ postId }) => {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      <h3>Comments</h3>
-      <ul>
-        {comments.map(comment => (
-          <li key={comment.id}>
-            <strong>{comment.name}:</strong> {comment.body}
-          </li>
-        ))}
-      </ul>
+    <div className="post-details">
+      <div className="post-title">
+        <h2>{post.title}</h2>
+      </div>
+      <div className="post-body">
+        <p>{post.body}</p>
+      </div>
+      <div className="comments-section">
+        <h3>Comments</h3>
+        <ul>
+          {comments.map(comment => (
+            <li key={comment.id} className="comment">
+              <strong>{comment.name}:</strong>
+              <p>{comment.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

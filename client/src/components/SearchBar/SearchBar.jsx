@@ -16,7 +16,7 @@ const SearchBar = ({ onSearch }) => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search by title..."
+          placeholder="Search post by title..."
           onChange={handleChange} // Update state on input change
         />
         <button className="search-button" onClick={handleSearchClick}>

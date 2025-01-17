@@ -7,7 +7,7 @@ const PostDetailsPage = () => {
   const { id } = useParams();
 
   return (
-    <div>
+    <div className="post-details-page">
       <PostDetails postId={id} />
     </div>
   );

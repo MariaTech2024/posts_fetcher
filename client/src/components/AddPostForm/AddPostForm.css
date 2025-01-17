@@ -1,5 +1,5 @@
 .add-post-form {
-    background-color: white;
+    background-color: #f1f6fa;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -22,6 +22,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;

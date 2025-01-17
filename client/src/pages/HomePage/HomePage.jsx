@@ -4,6 +4,7 @@ import PostCard from "../../components/PostCard/PostCard.jsx";
 import SearchBar from "../../components/SearchBar/SearchBar.jsx";
 import AddPostForm from "../../components/AddPostForm/AddPostForm.jsx";
 import { useNavigate } from "react-router-dom";
+import bannerImage from "../../assets/blog.png";
 import './HomePage.css';
 
 const Home = () => {
@@ -27,18 +28,20 @@ const Home = () => {
     setShowAddPostForm(false); // Hide the form after adding a post
   };
 
-  // Filter posts based on the search term
+  const handleSearch = (term) => {
+    setSearchTerm(term || ""); // Update the search term, default to empty if undefined
+  };
+
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Handle the search term change
-  const handleSearch = (searchValue) => {
-    setSearchTerm(searchValue); // Update the state with the new search term
-  };
-
   return (
     <div className="home-container">
+      {/* Banner */}
+      <div className="banner">
+        <img src={bannerImage} alt="Banner" className="banner-image" />
+        </div>
       {/* Search Bar */}
       <SearchBar onSearch={handleSearch} />
 
@@ -51,7 +54,6 @@ const Home = () => {
     Add Post
   </button>
 )}
-
       {/* Add Post Form (only shown when showAddPostForm is true) */}
       {showAddPostForm && (
   <AddPostForm
