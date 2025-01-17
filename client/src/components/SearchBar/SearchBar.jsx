@@ -1,14 +1,10 @@
 import React from "react";
 import './SearchBar.css';
-import { FaSearch } from 'react-icons/fa'; // Importing the search icon from react-icons
+import { FaSearch } from 'react-icons/fa'; 
 
 const SearchBar = ({ onSearch }) => {
   const handleChange = (e) => {
     onSearch(e.target.value); // Update the parent state with the search term
-  };
-
-  const handleSearchClick = () => {
-    onSearch(); // This can be used if you want a default search term action
   };
 
   return (
@@ -19,9 +15,7 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Search post by title..."
           onChange={handleChange} // Update state on input change
         />
-        <button className="search-button" onClick={handleSearchClick}>
           <FaSearch className="search-icon" />
-        </button>
       </div>
     </div>
   );

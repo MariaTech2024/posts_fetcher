@@ -27,21 +27,9 @@
   border-color: #266fbe;
 }
 
-.search-button {
+.search-icon {
   position: absolute;
   right: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 10px;
-  transition: transform 0.2s ease;
-}
-
-.search-button:hover {
-  transform: scale(1.1);
-}
-
-.search-icon {
   color: #5a76d3;
   font-size: 20px;
 }

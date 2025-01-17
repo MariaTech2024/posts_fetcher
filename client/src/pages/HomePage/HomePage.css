@@ -55,3 +55,40 @@ body {
   width: 100%; 
   margin-top: 20px;
 }
+
+/* Responsive for tablet screens (768px to 1024px) */
+@media (max-width: 1024px) {
+  .posts-container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .banner-image {
+    height: 220px; 
+  }
+
+  .add-post-button {
+    font-size: 14px; 
+    padding: 8px 16px; 
+  }
+}
+
+/* Responsive for mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .posts-container {
+    grid-template-columns: 1fr; 
+  }
+
+  .banner-image {
+    height: 180px; 
+  }
+
+  .add-post-button {
+    font-size: 14px; 
+    padding: 8px 16px; 
+    margin-top: 20px; 
+  }
+
+  .home-container {
+    margin: 10px 5px; 
+  }
+}

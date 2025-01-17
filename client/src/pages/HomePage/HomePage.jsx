@@ -9,31 +9,51 @@ import './HomePage.css';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // Default to empty string to avoid undefined
+  const [searchTitle, setSearchTitle] = useState(""); // Default to empty string to avoid undefined
   const [showAddPostForm, setShowAddPostForm] = useState(false); // State to toggle the form visibility
+  const [loading, setLoading] = useState(false); // Loading state for fetch
+  const [error, setError] = useState(""); // State to handle errors
   const navigate = useNavigate();
 
-  // Fetch posts from the API
+  // Fetch posts from the API when the component is mounted
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => setPosts(response.data))
-      .catch((error) => console.error("Error fetching posts:", error));
-  }, []);
+    const fetchPosts = async () => {
+      setLoading(true); // Start loading when API request begins
+      try {
+        const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+        setPosts(response.data); // Store the fetched posts
+      } catch (error) {
+        setError("Failed to fetch posts. Please try again later."); // Set error if API fails
+        console.error("Error fetching posts:", error); // Log the error for debugging
+      } finally {
+        setLoading(false); // Stop loading after the request finishes
+      }
+    };
 
-  // Add a new post 
+    fetchPosts(); // Trigger the fetch function
+  }, []); // Empty dependency array ensures this runs only once when the component mounts
+
+  // Handle adding a new post
   const handleAddPost = (newPost) => {
-    const id = posts.length > 0 ? posts[0].id + 1 : 1;
-    const newPostWithId = { ...newPost, id, userId: 1 }; // Add userId for consistency
-    setPosts([newPostWithId, ...posts]);
-    setShowAddPostForm(false); // Hide the form after adding a post
+    try {
+      const id = posts.length > 0 ? posts[0].id + 1 : 1; // Generate new ID based on existing posts
+      const newPostWithId = { ...newPost, id, userId: 1 }; // Add userId for consistency
+      setPosts([newPostWithId, ...posts]); // Add the new post at the beginning of the posts array
+      setShowAddPostForm(false); // Hide the form after adding the post
+    } catch (error) {
+      setError("Failed to add post. Please try again later."); // Set error if adding post fails
+      console.error("Error adding post:", error); // Log the error for debugging
+    }
   };
 
-  const handleSearch = (term) => {
-    setSearchTerm(term || ""); // Update the search term, default to empty if undefined
+  // Update the search title when the user types in the search bar
+  const handleSearch = (title) => {
+    setSearchTitle(title || ""); // Update the search term, default to empty string if undefined
   };
 
+  // Filter posts based on the search term
   const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    post.title.toLowerCase().includes(searchTitle.toLowerCase()) // Match search term with post titles
   );
 
   return (
@@ -41,35 +61,48 @@ const Home = () => {
       {/* Banner */}
       <div className="banner">
         <img src={bannerImage} alt="Banner" className="banner-image" />
-        </div>
+      </div>
+
       {/* Search Bar */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Add Post Button */}
+      {/* Display error message if there's an error */}
+      {error && <div className="error-message">{error}</div>}
+
+      {/* Add Post Button (shown if the form is not visible) */}
       {!showAddPostForm && (
-  <button
-    className="add-post-button"
-    onClick={() => setShowAddPostForm(true)}
-  >
-    Add Post
-  </button>
-)}
+        <button
+          className="add-post-button"
+          onClick={() => setShowAddPostForm(true)} // Toggle the form visibility
+        >
+          Add Post
+        </button>
+      )}
+
       {/* Add Post Form (only shown when showAddPostForm is true) */}
       {showAddPostForm && (
-  <AddPostForm
-    onAddPost={handleAddPost}
-    onCancel={() => setShowAddPostForm(false)} 
-  />
-)}
-      {/* Posts Container */}
+        <AddPostForm
+          onAddPost={handleAddPost} // Pass function to handle post submission
+          onCancel={() => setShowAddPostForm(false)} // Pass function to hide the form
+        />
+      )}
+
+      {/* Loading state message */}
+      {loading && <div className="loading-message">Loading posts...</div>}
+
+      {/* Display posts if available, else show a message */}
       <div className="posts-container">
-        {filteredPosts.map((post) => (
-          <PostCard
-            key={post.id}
-            post={post}
-            onClick={(id) => navigate(`/posts/${id}`)}
-          />
-        ))}
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onClick={(id) => navigate(`/posts/${id}`)} // Navigate to the post detail page
+            />
+          ))
+        ) : (
+          <div>No posts found.</div> // Display this message if no posts match the search
+        )}
       </div>
     </div>
   );
