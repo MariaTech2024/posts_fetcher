@@ -9,52 +9,58 @@ import './HomePage.css';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-  const [searchTitle, setSearchTitle] = useState(""); // Default to empty string to avoid undefined
-  const [showAddPostForm, setShowAddPostForm] = useState(false); // State to toggle the form visibility
-  const [loading, setLoading] = useState(false); // Loading state for fetch
-  const [error, setError] = useState(""); // State to handle errors
+  const [searchTitle, setSearchTitle] = useState(""); 
+  const [showAddPostForm, setShowAddPostForm] = useState(false); 
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(""); 
   const navigate = useNavigate();
 
-  // Fetch posts from the API when the component is mounted
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true); // Start loading when API request begins
-      try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
-        setPosts(response.data); // Store the fetched posts
-      } catch (error) {
-        setError("Failed to fetch posts. Please try again later."); // Set error if API fails
-        console.error("Error fetching posts:", error); // Log the error for debugging
-      } finally {
-        setLoading(false); // Stop loading after the request finishes
-      }
-    };
-
-    fetchPosts(); // Trigger the fetch function
-  }, []); // Empty dependency array ensures this runs only once when the component mounts
-
-  // Handle adding a new post
-  const handleAddPost = (newPost) => {
+ // Fetch posts from the API 
+ useEffect(() => {
+  const fetchPosts = async () => {
+    setLoading(true); 
     try {
-      const id = posts.length > 0 ? posts[0].id + 1 : 1; // Generate new ID based on existing posts
-      const newPostWithId = { ...newPost, id, userId: 1 }; // Add userId for consistency
-      setPosts([newPostWithId, ...posts]); // Add the new post at the beginning of the posts array
-      setShowAddPostForm(false); // Hide the form after adding the post
+      const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPosts(response.data);
     } catch (error) {
-      setError("Failed to add post. Please try again later."); // Set error if adding post fails
-      console.error("Error adding post:", error); // Log the error for debugging
+      setError("Failed to fetch posts. Please try again later."); 
+      console.error("Error fetching posts:", error); 
+    } finally {
+      setLoading(false); 
     }
   };
 
-  // Update the search title when the user types in the search bar
-  const handleSearch = (title) => {
-    setSearchTitle(title || ""); // Update the search term, default to empty string if undefined
-  };
+  fetchPosts(); 
+}, []); 
 
-  // Filter posts based on the search term
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTitle.toLowerCase()) // Match search term with post titles
-  );
+
+// Update the search title when the user types in the search bar
+const handleSearch = (title) => {
+  setSearchTitle(title || ""); 
+};
+
+// Handle adding a new post
+const handleAddPost = (newPost) => {
+  try {
+    // Ensure the ID is unique by finding the maximum existing ID and incrementing it
+    const maxId = posts.reduce((max, post) => Math.max(max, post.id), 0);
+    const id = maxId + 1;  // Use max id + 1 as the new id
+    const newPostWithId = { ...newPost, id, userId: 1 }; // Add userId for consistency
+    const updatedPosts = [newPostWithId, ...posts]; // Add the new post at the beginning of the posts array
+
+    setPosts(updatedPosts);
+    setSearchTitle(""); 
+    setShowAddPostForm(false); 
+  } catch (error) {
+    setError("Failed to add post. Please try again later.");
+    console.error("Error adding post:", error); 
+  }
+};
+
+// Filter posts based on the search term
+const filteredPosts = posts.filter((post) =>
+  post.title.toLowerCase().includes(searchTitle.toLowerCase()) 
+);
 
   return (
     <div className="home-container">
@@ -73,7 +79,7 @@ const Home = () => {
       {!showAddPostForm && (
         <button
           className="add-post-button"
-          onClick={() => setShowAddPostForm(true)} // Toggle the form visibility
+          onClick={() => setShowAddPostForm(true)} 
         >
           Add Post
         </button>
@@ -82,8 +88,8 @@ const Home = () => {
       {/* Add Post Form (only shown when showAddPostForm is true) */}
       {showAddPostForm && (
         <AddPostForm
-          onAddPost={handleAddPost} // Pass function to handle post submission
-          onCancel={() => setShowAddPostForm(false)} // Pass function to hide the form
+          onAddPost={handleAddPost} 
+          onCancel={() => setShowAddPostForm(false)} 
         />
       )}
 
@@ -97,11 +103,11 @@ const Home = () => {
             <PostCard
               key={post.id}
               post={post}
-              onClick={(id) => navigate(`/posts/${id}`)} // Navigate to the post detail page
+              onClick={(id) => navigate(`/posts/${id}`)} 
             />
           ))
         ) : (
-          <div>No posts found.</div> // Display this message if no posts match the search
+          <div>No posts found.</div> 
         )}
       </div>
     </div>

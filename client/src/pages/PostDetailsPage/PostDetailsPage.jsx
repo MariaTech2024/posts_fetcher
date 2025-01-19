@@ -14,7 +14,6 @@ const PostDetailsPage = () => {
 
   return (
     <div className="post-details-page">
-      {/* Container for the button and the post details */}
       <div className="top-container">
         {/* Come back to home button with icon */}
         <button className="back-to-home-button" onClick={handleGoBack}>
