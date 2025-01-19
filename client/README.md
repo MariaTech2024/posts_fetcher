@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+React Blog Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React blog application that fetches data from the JSONPlaceholder API. The app allows users to view, search, and add posts, as well as view detailed information about each post, including comments.
+Features
 
-## Available Scripts
+    Display Posts
+        Fetches a list of posts from the API and displays them in a card format.
+        Each post displays the title and body.
 
-In the project directory, you can run:
+    View Post Details
+        When a user clicks on a post, they are navigated to a detailed view page.
+        The detailed view includes the title, body, and a list of comments associated with the post.
 
-### `npm start`
+    Search Functionality
+        Includes a search bar on the main page that filters posts by title.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Add New Post
+        A form allows users to add a new post by entering a title and body.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technologies Used
 
-### `npm test`
+    React (Functional Components with Hooks)
+    React Router for navigation
+    Axios for making HTTP requests
+    CSS (Basic styling for responsiveness)
+    JSONPlaceholder API for fetching posts and comments
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Installation
 
-### `npm run build`
+To run the project locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Clone the repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+git clone https://github.com/MariaTech2024/posts_fetcher.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Navigate to the project directory
 
-### `npm run eject`
+cd client
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm install 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    npm start
 
-## Learn More
+    Open your browser
+        Visit http://localhost:3000 to see the app running locally.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+How It Works
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Home Page:
+        Displays a list of posts fetched from https://jsonplaceholder.typicode.com/posts.
+        Each post has a title and body, displayed in a card format.
+        A search bar allows users to filter posts by title.
 
-### Code Splitting
+    Post Detail Page:
+        When a post is clicked, users are navigated to a page showing the post's full details, including comments fetched from https://jsonplaceholder.typicode.com/comments?postId={postId}.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Add New Post:
+        A form on the home page allows users to add a new post. The form collects the title and body of the post, and on submission, a new post is added to the list.
 
-### Analyzing the Bundle Size
+API Endpoints Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Posts: https://jsonplaceholder.typicode.com/posts
+    Comments: https://jsonplaceholder.typicode.com/comments?postId={postId}
 
-### Making a Progressive Web App
+Features Implemented
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    Fetch data from JSONPlaceholder API.
+    Display posts in a card format with title and body.
+    Detailed view for each post with comments.
+    Search posts by title.
+    Add new posts via a form.
+    Responsive design for both mobile and desktop views.
 
-### Advanced Configuration
+Error Handling & Loading State
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    The app handles loading states and errors gracefully:
+        While data is being fetched, a loading message is shown.
+        In case of an error, an error message is displayed.
