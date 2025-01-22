@@ -1,5 +1,3 @@
-React Blog Application
-
 This is a React blog application that fetches data from the JSONPlaceholder API. The app allows users to:
 
     📝 View, search, add, edit, and delete posts.
