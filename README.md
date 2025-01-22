@@ -5,16 +5,6 @@ This is a React blog application that fetches data from the JSONPlaceholder API.
     📝 View, search, add, edit, and delete posts.
     🗨️ View detailed information about each post, including comments.
 
-📚 Table of Contents
-
-    Features
-    Technologies Used
-    Installation
-    How It Works
-    API Endpoints Used
-    Error Handling & Loading State
-    Contribution
-
 ✨ Features
 
     Display Posts: Fetches a list of posts and displays them in a card format with title and body.
