@@ -1,83 +1,70 @@
-React Blog Application 📝
+# Getting Started with Create React App
 
-This is a React blog application that fetches data from the JSONPlaceholder API. The app allows users to:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-    📝 View, search, add, edit, and delete posts.
-    🗨️ View detailed information about each post, including comments.
+## Available Scripts
 
-✨ Features
+In the project directory, you can run:
 
-    Display Posts: Fetches a list of posts and displays them in a card format with title and body.
-    View Post Details: Detailed view with comments for each post.
-    Search Functionality: Filter posts by title using a search bar.
-    Add New Post: A form to add new posts.
-    Edit Post: Modify existing posts with a pre-filled form.
-    Delete Post: Delete posts with a confirmation prompt.
-    Pagination: Controls the number of posts displayed per page.
+### `npm start`
 
-🛠️ Technologies Used
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-    React (Functional Components with Hooks)
-    React Router
-    Axios
-    CSS
-    JSONPlaceholder API
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-🚀 Installation
+### `npm test`
 
-To run the project locally:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-    Clone the repository:
+### `npm run build`
 
-    git clone https://github.com/MariaTech2024/posts_fetcher.git
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    Navigate to the project directory:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-cd client
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Install dependencies:
+### `npm run eject`
 
-npm install
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Start the development server:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-npm start
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Open your browser and visit: http://localhost:3000.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-🎯 How It Works:
+## Learn More
 
-🏠 Home Page
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Displays a list of posts fetched from https://jsonplaceholder.typicode.com/posts.
-Includes a search bar to filter posts by title.
-Implements pagination to control the number of visible posts.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-🔍 Post Detail Page
+### Code Splitting
 
-Clicking a post navigates the user to a detailed view page.
-Shows the post's full details, including comments fetched from: https://jsonplaceholder.typicode.com/comments?postId={postId}.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-➕ Add New Post
+### Analyzing the Bundle Size
 
-Users can submit a title and body via a form.
-The new post is added to the list upon submission.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-✏️ Edit Post
+### Making a Progressive Web App
 
-Clicking the edit button opens a form pre-filled with the post's data.
-Users can modify the title and body and save changes.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-🗑️ Delete Post
+### Advanced Configuration
 
-Clicking the delete button prompts the user for confirmation before removing the post.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-📡 API Endpoints Used
+### Deployment
 
-Posts: https://jsonplaceholder.typicode.com/posts
-Comments: https://jsonplaceholder.typicode.com/comments?postId={postId}
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-💡 Error Handling & Loading State
+### `npm run build` fails to minify
 
-Loading State: Displays a spinner while fetching data.
-Error Handling: Shows an error message in case of API failures.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
