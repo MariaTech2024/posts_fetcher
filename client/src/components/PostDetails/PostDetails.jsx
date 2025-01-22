@@ -6,7 +6,6 @@ const PostDetails = ({ postId }) => {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
-  // Fetch post and comments data 
   useEffect(() => {
     // Fetch the post details using postId
     axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
@@ -36,7 +35,6 @@ const PostDetails = ({ postId }) => {
       {/* Comments Section */}
       <div className="comments-section">
         <h3>Comments</h3>
-        {/* Map through comments and display each one */}
         <ul>
           {comments.map(comment => (
             <li key={comment.id} className="comment">

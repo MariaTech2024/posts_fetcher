@@ -1,0 +1,115 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .modal-content {
+    background: #f3f5f8;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #484a5d;
+  }
+  
+  /* Animation for the popup */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .edit-post-form h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #1e2865;
+  }
+  
+  .edit-post-form input,
+  .edit-post-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+   
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .edit-post-form input:focus,
+  .edit-post-form textarea:focus {
+    border-color: #1177e4;
+    outline: none;
+  }
+  
+  .edit-post-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .edit-post-form button {
+    width: 48%;
+    padding: 10px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .edit-post-form button.save, .edit-post-form button.cancel {
+    background: #30559a;
+    color: #fff;
+  }
+  
+  .edit-post-form button.save:hover, .edit-post-form button.cancel:hover {
+    background: #5a90f5;
+  }
+
+  /* Responsive Design for smaller screens */
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .edit-post-form h3 {
+      font-size: 20px;
+    }
+  
+    .edit-post-form button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }

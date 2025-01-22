@@ -1,0 +1,18 @@
+.pagination-links {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  
+  .pagination-link {
+    color: #1b5696;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0 10px;
+    display: inline-block;
+  }
+  
+  .pagination-link:hover {
+    color: #378be4;
+    text-decoration: none;
+  }

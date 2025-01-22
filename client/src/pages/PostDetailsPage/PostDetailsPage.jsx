@@ -15,12 +15,11 @@ const PostDetailsPage = () => {
   return (
     <div className="post-details-page">
       <div className="top-container">
-        {/* Come back to home button with icon */}
+        {/* Come back home button with icon */}
         <button className="back-to-home-button" onClick={handleGoBack}>
           Home Page  <FaArrowRight className="back-to-home-icon" /> 
         </button>
       </div>
-      {/* Post Details */}
       <PostDetails postId={id} />
     </div>
   );

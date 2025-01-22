@@ -12,8 +12,8 @@ body {
   flex-direction: column;  
   align-items: center;     
   justify-content: center;
-  margin: 10px 20px;
-  padding: 5px;
+  margin: 0px 20px;
+  padding: 10px;
   background-color: #f9f9f9; 
   box-sizing: border-box;
 }
@@ -40,7 +40,7 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 20px;
   transition: background-color 0.3s ease;
 }
 
@@ -53,8 +53,9 @@ body {
   grid-template-columns: repeat(4, 1fr); 
   gap: 5px;
   width: 100%; 
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
 
 /* Responsive for tablet screens (768px to 1024px) */
 @media (max-width: 1024px) {

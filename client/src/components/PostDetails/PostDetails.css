@@ -49,3 +49,68 @@
 .comment p {
   margin: 5px 0 0;
 }
+
+/* For large screens (desktops) */
+@media (min-width: 1200px) {
+  .post-details {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .post-title {
+    font-size: 28px;
+  }
+  .post-body {
+    font-size: 18px;
+  }
+  .comments-section {
+    padding: 30px;
+  }
+  .comment {
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+/* For laptops */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .post-details {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .post-title {
+    font-size: 24px;
+  }
+  .post-body {
+    font-size: 16px;
+  }
+  .comments-section {
+    padding: 20px;
+  }
+  .comment {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 767px) {
+  .post-details {
+    max-width: 100%;
+    padding: 15px;
+  }
+  .post-title {
+    font-size: 20px;
+    padding: 8px;
+  }
+  .post-body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .comments-section {
+    padding: 10px;
+  }
+  .comment {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

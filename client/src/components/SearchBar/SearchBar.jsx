@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = ({ onSearch }) => {
   const handleChange = (e) => {
-    onSearch(e.target.value); // Update the parent state with the search term
+    onSearch(e.target.value); 
   };
 
   return (
@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch }) => {
         <input
           type="text"
           placeholder="Search post by title..."
-          onChange={handleChange} // Update state on input change
+          onChange={handleChange} 
         />
           <FaSearch className="search-icon" />
       </div>
