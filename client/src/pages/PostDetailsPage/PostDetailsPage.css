@@ -17,7 +17,7 @@
   cursor: pointer;
   position: absolute; 
   top: -40px; 
-  right: 135px;
+  right: 5px;
   bottom: 8px;
   z-index: 1000;
   transition: background-color 0.3s ease;

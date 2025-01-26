@@ -37,10 +37,15 @@ const PostDetails = ({ postId }) => {
         <h3>Comments</h3>
         <ul>
           {comments.map(comment => (
-            <li key={comment.id} className="comment">
-              <strong>{comment.name}:</strong>
-              <p>{comment.body}</p>
-            </li>
+           <li key={comment.id} className="comment">
+           <div className="comment-header">
+             <span className="comment-email">{comment.email}:</span>
+             <br />
+             <span className="comment-name">{comment.name}</span>
+             <br />
+           </div>
+           <p className="comment-body">{comment.body}</p>
+         </li>
           ))}
         </ul>
       </div>
