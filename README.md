@@ -83,7 +83,8 @@ Start the development server:
     Posts: https://jsonplaceholder.typicode.com/posts
     Comments: https://jsonplaceholder.typicode.com/comments?postId={postId}
 
-💡 Error Handling & Loading State
+💡 Error Handling 
 
-    Loading State: Displays a spinner while fetching data.
-    Error Handling: Shows an error message in case of API failures.
+    Fetching Posts: If there's an issue fetching posts from the API, an error message "Failed to fetch posts. Please try again later." is displayed. Errors are also logged in the console.
+    Empty Search Results: If no posts match the search term, the message "No posts found." is shown.
+    Post Deletion: A confirmation prompt ensures posts aren't accidentally deleted. The user can confirm or cancel the action.
