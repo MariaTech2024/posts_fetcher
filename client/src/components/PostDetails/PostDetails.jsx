@@ -5,7 +5,7 @@ import './PostDetails.css';
 const PostDetails = ({ postId }) => {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true); // Single loading state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
