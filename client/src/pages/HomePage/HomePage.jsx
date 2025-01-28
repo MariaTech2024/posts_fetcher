@@ -44,11 +44,6 @@ const Home = () => {
     }
   };
 
-  // Filter posts by title
-  const handleSearch = (title) => {
-    setSearchTitle(title || "");
-  };
-
   // Add a new post to the list and save to session storage
   const handleAddPost = (newPost) => {
     const maxId = posts.reduce((max, post) => Math.max(max, post.id), 0);
@@ -80,10 +75,18 @@ const Home = () => {
     setEditingPost(null); 
   };
 
-  // Filter posts based on search input
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTitle.toLowerCase())
-  );
+  
+  // Filter posts by title
+const handleSearch = (title) => {
+  setSearchTitle(title || ""); 
+};
+
+// Filter posts based on search input
+const filteredPosts = !searchTitle.trim() 
+  ? posts 
+  : posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTitle.toLowerCase())
+);
 
   // Display only a limited number of posts
   const visiblePosts = filteredPosts.slice(0, visibleCount);
