@@ -5,18 +5,30 @@ import './PostDetails.css';
 const PostDetails = ({ postId }) => {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true); // Single loading state
 
   useEffect(() => {
-    // Fetch the post details using postId
-    axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then(response => setPost(response.data)) 
-      .catch(error => console.error("Error fetching post:", error)); 
+    const fetchData = async () => {
+      try {
+        // Fetch the post details
+        const postResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        setPost(postResponse.data);
 
-    // Fetch the comments associated with the specific postId
-    axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-      .then(response => setComments(response.data)) 
-      .catch(error => console.error("Error fetching comments:", error)); 
-  }, [postId]); 
+        // Fetch the comments after the post is fetched
+        const commentsResponse = await axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
+        setComments(commentsResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
+
+  if (loading) return <p>Loading...</p>;
 
   if (!post) return <p>No comments found.</p>;
 
