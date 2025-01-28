@@ -6,7 +6,7 @@ const PostCard = ({ post, onClick, onEdit, onDelete }) => {
     <div className="posts-container">
       <div className="post-card" onClick={() => onClick(post.id)}>
         <h3>{post.title}</h3>
-        <p>{post.body.slice(0, 100)}...</p>
+        <p>{post.body}...</p>
 
         {/* Buttons for editing and deleting */}
         <div className="post-card-buttons">

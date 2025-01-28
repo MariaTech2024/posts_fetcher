@@ -25,19 +25,27 @@
   font-weight: bold;
   color: #333; 
   text-align: center; 
-  margin: 10px 0; 
+  margin: 10px;
   border-bottom: 2px solid #ddd; 
-  padding-bottom: 8px; 
+  padding-bottom: 10px; 
   box-sizing: border-box;
+  height: 40px; 
+  line-height: 20px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
 }
 
 .post-card p {
   font-size: 1rem; 
   color: #555; 
-  line-height: 1.5; 
+  line-height: 1.5;
   text-align: justify; 
+  height: 100px; 
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; 
+  white-space: normal; 
+  margin-top: 5px;
   margin-bottom: 10px;
 }
 
