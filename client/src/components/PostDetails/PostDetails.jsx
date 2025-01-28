@@ -18,7 +18,7 @@ const PostDetails = ({ postId }) => {
       .catch(error => console.error("Error fetching comments:", error)); 
   }, [postId]); 
 
-  if (!post) return <p>Loading...</p>;
+  if (!post) return <p>No comments found.</p>;
 
   return (
     <div className="post-details">
